@@ -3,30 +3,39 @@
 using namespace std;
 
 movie::movie() {
-  title;
-  artist;
-  year = 0;
+  strcpy(director, "");
   duration = 0;
-  publisher;
+  rating = 0;
 }
 
-char movie::getTitle() {
-  return title;
+movie::movie(const char* t, int y, const char* pub, int r) {
+  strncpy(director, dir, 99);
+  director[99] = '\0'
+  duration = d;
+  rating = r;
 }
 
-char movie::getArtist() {
-  return artist;
+movie::~movie() {
+//oooo
 }
 
-int movie::getYear() {
-  return year;
+const char* movie::getDirector() {
+  return director;
 }
 
-int movie::getDuration() {
+int movie::getDuration() const{
   return duration;
 }
 
-char movie::getPublisher() {
-  return publisher;
+int movie::getRating() const{
+  return rating;
+}
+
+void movie::print() const {
+  cout << "Movie: " << title << endl;
+  cout << "Year: " << year << endl;
+  cout << "Director: " << director << endl;
+  cout << "Duration: " << duration << endl;
+  cout << "Rating: " << rating << endl;
 }
 

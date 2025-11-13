@@ -3,25 +3,30 @@
 using namespace std;
 
 game::game() {
-  title;
-  year = 0;
-  publisher;
+  strcpy(publisher, "");
   rating = 0;
 }
 
-char game::getTitle() {
-  return title;
+game::game(const char* t, int y, const char* pub, int r) {
+  strncpy(publisher, pub, 99);
+  publisher[99] = '\0'
+  rating = r;
 }
 
-int game::getYear() {
-  return year;
+game::~game() {
+//oooo
 }
 
-char game::getPublisher() {
+const char* game::getPublisher() const {
   return publisher;
 }
 
-int game::getRating() {
+int game::getRating() const {
   return rating;
 }
-
+void game::print() const {
+  cout << "Video Game: " << title << endl;
+  cout << "Year: " << year << endl;
+  cout << "Publisher: " << publisher << endl;
+  cout << "Rating: " << rating << endl;
+}

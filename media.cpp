@@ -1,25 +1,29 @@
 #include <iostream>
 #include "media.h"
+#include <cstring>
 using namespace std;
 
 media::media() {
-  title;
+  strcpy(title,"");
   year = 0;
-  publisher;
-  rating = 0;
-  artist;
-  duration = 0;
-  director;
 }
 
-char media::getTitle() {
+media::media(const char* t, int y) {
+  strncpy(title, t, 299);
+  title[299] = '\0';
+  year = y;
+}
+
+media::~media() {}
+
+const char* media::getTitle() const {
   return title;
 }
 
-int media::getYear() {
+int media::getYear() const {
   return year;
 }
-
+/*
 char media::getPublisher() {
   return publisher;
 }
@@ -39,4 +43,4 @@ int media::getDuration() {
 char media::getDirector() {
   return director;
 }
-
+*/
