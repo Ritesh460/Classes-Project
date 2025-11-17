@@ -2,24 +2,24 @@
 #include "movies.h"
 using namespace std;
 
-movie::movie() {
+movie::movie() {  //default
   strcpy(director, "");
   duration = 0;
   rating = 0;
 }
-
-movie::movie(const char* t, int y, const char* pub, int r) {
+//parametrized
+movie::movie(const char* t, int y, const char* dir, int d, int r) : media(t,y) {
   strncpy(director, dir, 99);
-  director[99] = '\0'
+  director[99] = '\0';
   duration = d;
   rating = r;
 }
 
-movie::~movie() {
-//oooo
+movie::~movie() { //destructor
+//cleanup if needed
 }
-
-const char* movie::getDirector() {
+//these get director, duration, and rating
+const char* movie::getDirector() const{
   return director;
 }
 
@@ -30,7 +30,7 @@ int movie::getDuration() const{
 int movie::getRating() const{
   return rating;
 }
-
+//print constructor
 void movie::print() const {
   cout << "Movie: " << title << endl;
   cout << "Year: " << year << endl;

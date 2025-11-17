@@ -1,22 +1,22 @@
 #include <iostream>
 #include "music.h"
 using namespace std;
-music::music() {
+music::music() { //default
   strcpy(artist, "");
   strcpy(publisher, "");
   duration = 0;
 }
-
-music::music() {
+//parametrized
+music::music(const char* t, int y, const char* art, const char* pub, int d) : media(t,y){
   strncpy(artist, art, 99);
   strncpy(publisher, pub, 99);
-  duration = 0;
+  duration = d;
 }
-
+//destructor
 music::~music() {
 //oooo
 }
-
+//these get artist and publisher and duration
 const char* music::getArtist() const {
   return artist;
 }
@@ -28,7 +28,7 @@ const char* music::getPublisher() const {
 int music::getDuration() const {
   return duration;
 }
-
+//print constructor
 void music::print() const {
   cout << "Song: " << title << endl;
   cout << "Year: " << year << endl;
